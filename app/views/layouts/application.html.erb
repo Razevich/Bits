@@ -7,6 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav>
+    <ul>
+      <li><%= link_to "Student Register", students_path%></li>
+      <li><%= link_to "Non Profit Register",students_path%></li>
+      <li><%= link_to "Student Sign In",students_path%></li>
+      <li><%= link_to "Non Profit Sign In",students_path%></li>
+    </ul>
+  </nav>
 
 <%= yield %>
 
