@@ -24,6 +24,9 @@
         </div>
     </div>
     <% end %>
+    <% if current_non_profit %>
+     <%= link_to "Log Out" , destroy_non_profit_session_path, method: :delete %>
+    <% end %>
   </nav>
 
 <%= yield %>

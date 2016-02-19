@@ -6,6 +6,7 @@ class Student < ActiveRecord::Base
   has_many :solutions, as: :solutionable
   has_many :students_non_profits
   has_many :non_profits, through: :students_non_profits
+  has_many :projects
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable

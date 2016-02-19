@@ -9,8 +9,10 @@ Rails.application.routes.draw do
 
   resources :students, only: [:show, :index]
 
-  resources :non_profits, only: [:show, :index] do
+
+  resources :non_profits, only: [:index] do
     resources :projects
   end
+  get "non_profits/:name", to: "non_profits#show", as: "non_profits_show"
 
 end
