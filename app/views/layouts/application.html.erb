@@ -8,12 +8,22 @@
 </head>
 <body>
   <nav>
-    <ul>
-      <li><%= link_to "Student Register", students_path%></li>
-      <li><%= link_to "Non Profit Register",students_path%></li>
-      <li><%= link_to "Student Sign In",students_path%></li>
-      <li><%= link_to "Non Profit Sign In",students_path%></li>
-    </ul>
+  <% if !signed_in? %>
+    <div class="dropdown">
+      <h4 class="padding"> Register </h4>
+        <div class="dropdown-content">
+          <li><%= link_to "Student Register", new_student_registration_path%></li>
+          <li><%= link_to "Non Profit Register", new_non_profit_registration_path %></li>
+        </div>
+    </div>
+    <div class="dropdown">
+      <h4 class="padding"> Log In </h4>
+        <div class="dropdown-content">
+          <li><%= link_to "Student Sign In",new_student_session_path%></li>
+          <li><%= link_to "Non Profit Sign In",new_non_profit_session_path%></li>
+        </div>
+    </div>
+    <% end %>
   </nav>
 
 <%= yield %>
