@@ -46,6 +46,10 @@ class Students::RegistrationsController < Devise::RegistrationsController
     params.require(:student).permit(:first_name,:last_name, :email, :affiliation, :description, :location)
   end
 
+  def after_sign_up_path_for(resource)
+    students_show_path(resource.name)
+  end
+
   # protected
 
   # You can put the params you want to permit in the empty array.

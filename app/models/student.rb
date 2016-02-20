@@ -10,14 +10,24 @@ class Student < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  after_create :first_name, :last_name
+  before_save :first_name, :last_name
 
 
   def first_name
-    self.first_name = self.name.split()[0]
+    if self.name != nil
+      self.first_name = self.name.split()[0]
+    end
   end
 
   def last_name
-    self.last_name = self.name.split()[-1]
+    if self.name != nil
+      self.last_name = self.name.split()[-1]
+    end
+  end
+
+  def name
+    if self.first_name != nil
+      self.name = self.first_name + self.last_name
+    end
   end
 end
