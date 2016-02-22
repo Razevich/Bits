@@ -37,17 +37,18 @@ class Students::RegistrationsController < Devise::RegistrationsController
   # end
 
   private
+  # giving strong params for devise. Used for multipul devise models
 
   def sign_up_params
-    params.require(:student).permit(:first_name,:last_name, :email, :affiliation, :description, :location)
+    params.require(:student).permit(:first_name,:last_name, :email, :password, :affiliation, :description, :location)
   end
 
   def account_update_params
-    params.require(:student).permit(:first_name,:last_name, :email, :affiliation, :description, :location)
+    params.require(:student).permit(:first_name,:last_name, :email, :password, :affiliation, :description, :location)
   end
 
   def after_sign_up_path_for(resource)
-    students_show_path(resource.name)
+    student_show_path(resource.email)
   end
 
   # protected

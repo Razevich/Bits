@@ -37,7 +37,7 @@ class NonProfits::RegistrationsController < Devise::RegistrationsController
   # end
 
   private
-
+# giving strong params for devise. Used for multipul devise models
   def sign_up_params
     params.require(:non_profit).permit(:name, :email, :password, :password_confirmation, :description, :location, :web_site, :image_url, :phone_number)
   end

@@ -1,1 +1,5 @@
-This is the non profit home page
+<div>
+ <% @non_profit.projects.each do |project| %>
+  <div> <%= project.name %> </div>
+  <% end %>
+</div>

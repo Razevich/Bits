@@ -25,8 +25,15 @@
     </div>
     <% end %>
     <% if current_non_profit %>
-     <%= link_to "Log Out" , destroy_non_profit_session_path, method: :delete %>
+      <%= link_to "Log Out" , destroy_non_profit_session_path, method: :delete %>
+      <div class="right padding"> <%= current_non_profit.name %> </div>
+    <% elsif current_student %>
+      <div class="right padding"><p>Hello <%= current_student.name %> </p></div>
+      <%= link_to "Log Out" , destroy_student_session_path, method: :delete %>
     <% end %>
+    <div class="right padding"><%= link_to "About Luminse", about_path %></div>
+    <div class="right padding"><%= link_to "How to use the site", faq_path %></div>
+
   </nav>
 
 <%= yield %>

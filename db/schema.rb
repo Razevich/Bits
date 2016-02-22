@@ -43,13 +43,22 @@ ActiveRecord::Schema.define(version: 20160217022927) do
   add_index "non_profits", ["reset_password_token"], name: "index_non_profits_on_reset_password_token", unique: true
 
   create_table "projects", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "non_profit_id"
+    t.integer  "student_id"
+    t.text     "name"
+    t.text     "github_link"
+    t.text     "description"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "solutions", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "student_id"
+    t.text     "name"
+    t.text     "github_link"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "students", force: :cascade do |t|

@@ -16,12 +16,28 @@ class Students::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  # protected
+  # def create
+  #   begin
+  #     @student = Student.from_omniauth(request.env['omniauth.auth'])
+  #     session[:student_id] = @student.id
+  #     flash[:success] = "Welcome, #{@student.first_name}!"
+
+  #   rescue
+  #     flash[:warning] = "There was an error while trying to authenticate you..."
+  #   end
+  #     redirect_to root_path
+  # end
+
+  # def destroy
+  #   session.delete(:student_id)
+  #   redirect_to root_path
+  # end
 
   private
 
+  # The path used after sign in.
   def after_sign_in_path_for(resource)
-    students_show_path(resource.name)
+    student_show_path(resource.email)
   end
 
   # You can put the params you want to permit in the empty array.
