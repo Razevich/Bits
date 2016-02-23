@@ -9,7 +9,9 @@ class Student < ActiveRecord::Base
   has_many :projects
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable,
+         :omniauthable, :omniauth_providers => [:facebook]
+
   before_save :name_setter
 
   class << self
@@ -20,9 +22,11 @@ class Student < ActiveRecord::Base
       student.image_url = auth_hash['info']['image']
       student.token = auth_hash['credentials']['token']
       student.expires_at = Time.at(auth_hash.credentials.expires_at)
-      student.url = auth_hash['info']['urls'][student.provider.capitalize]
+      # student.url = auth_hash['info']['urls'][student.provider.capitalize]
       student.first_name = student.name.split()[0]
       student.last_name = student.name.split()[-1]
+      student.email = "temp@email.com"
+      student.password = "0099007700660055004400220033"
       student.save!
       student
     end
