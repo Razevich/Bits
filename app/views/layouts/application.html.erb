@@ -26,6 +26,7 @@
     <% end %>
     <% if current_non_profit %>
       <%= link_to "Log Out" , destroy_non_profit_session_path, method: :delete %>
+      <%= link_to "Add New Project" ,  new_projects_path(current_non_profit.name) %>
       <div class="right padding"> <%= current_non_profit.name %> </div>
     <% elsif current_student %>
       <div class="right padding"><p>Hello <%= current_student.name %> </p></div>
