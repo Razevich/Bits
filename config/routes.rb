@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
 
   get "non_profits/:name", to: "non_profits#show", as: "non_profits_show"
+  get "non_profits/:name/projects/new", to: "projects#new", as: "new_projects"
   get "student", to: "studenst#index"
   get "student/:email", to: "students#show", as: "student_show"
 
