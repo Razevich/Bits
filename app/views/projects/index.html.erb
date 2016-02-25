@@ -1,7 +1,7 @@
-<h1>List of <%= current_non_profit.name %>'s Projects</h1>
+<h1>List of <%= current_non_profit.name.capitalize %>'s Projects</h1>
 
-<% @projects.each do |project| %>
-<ul>
-  <li> <%= project.name %></li>  
-</ul>
-<% end %>
+  <% @projects.each do |project| %>
+  <ul>
+    <li> <%= project.name %></li>
+  </ul>
+  <% end %>
